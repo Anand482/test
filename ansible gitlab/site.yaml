@@ -1,0 +1,5 @@
+- hosts: main
+  remote_user: root
+
+  roles:
+   - git

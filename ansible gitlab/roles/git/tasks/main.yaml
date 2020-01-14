@@ -1,0 +1,18 @@
+---
+# tasks file for gitlab
+- name: Download gitlab repo RedHat-like
+  get_url:
+    url: https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh
+    dest: /usr/src/gitlab.rpm.sh
+    mode: 0755
+    validate_certs: no
+    headers:
+      accept: '*/*'
+
+
+- name: Install gitlab repo RedHat-Like
+  command: bash /usr/src/gitlab.rpm.sh
+
+
+- name: Install gitlab RedHat-Like
+  yum: name=git state=latest
